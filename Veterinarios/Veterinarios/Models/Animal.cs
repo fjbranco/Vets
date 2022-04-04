@@ -29,6 +29,7 @@ namespace Veterinarios.Models
         public Owner Owner { get; set; }
 
 
+
         public ICollection<Appointement> Appointements { get; set; }
     }
 }
