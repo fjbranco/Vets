@@ -20,11 +20,10 @@ namespace Veterinarios.Models
         /// <summary>
         /// name of owner
         /// </summary>
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
-        [StringLength(20, ErrorMessage = "O {0} só pode utilizar até 20 caracteres")]
         //[RegularExpression("[A-Z][a-záéíóúàèìòùãõâêîôûäëïöüñç]+( [A-Z][a-záéíóúàèìòùãõâêîôûäëïöüñç]+)*", ErrorMessage = "Por favor, coloque o seu {0} de forma correcta.")]
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [StringLength(30, ErrorMessage = "O {0} pode ter até {1} caracteres")]
         [RegularExpression("[A-ZÂÓÍa-záéíóúàèìòùãõâêîôûäëïöüñç '-]+", ErrorMessage = "")]
-        // 
         [Display(Name="Nome")]
         public string Name { get; set; }
 
@@ -44,7 +43,13 @@ namespace Veterinarios.Models
         [Display(Name = "Sexo")]
         [RegularExpression("[MmFf]",ErrorMessage = "Só pode usar F ou M no campo {0}")]
         public string Sex { get; set; }
-        
+
+        /// <summary>
+        /// Email do Dono
+        /// </summary>
+        [EmailAddress(ErrorMessage ="Escreva um nome de {0} válido.")]
+        public string Email { get; set; }
+
 
         /// <summary>
         /// set of owner's animals
